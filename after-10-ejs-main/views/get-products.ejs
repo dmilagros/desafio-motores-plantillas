@@ -1,0 +1,28 @@
+<%- include('./partials/head')  %> 
+<% if (products.length>0) { %>
+    <h1>Listado de productos</h1>
+    <p>Hay <%= products.length %> producto(s)</p>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Foto URL</th>
+          </tr>
+        </thead>
+        <tbody class="table-group-divider">
+    <% products.forEach(item => { %>
+        <tr>
+            <td><%=item.title  %> </td>
+            <td>$ <%=item.price  %> </td>
+            <td><img src="<%=item.thumbnail %>" width="50"></td>
+        </tr>
+    <% }) %>
+        </tbody>
+        </table>
+<% } else { %>
+    <p>Hay <%= products.length %> producto(s)</p>
+<% } %>
+
+<a href="/" class="btn btn-success">Agregar producto</a>
+<%- include('./partials/foot')  %> 
